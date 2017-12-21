@@ -1,0 +1,20 @@
+.navbar {
+    background: #e7e7e7;
+}
+
+.navbar>ul {
+    margin: 0;
+}
+
+.navbar>ul>li {
+    display: inline-block;
+    margin: 0em 1em;
+}
+
+.navbar>ul>li>a {
+    color: #777;
+}
+
+.navbar>ul>li:hover>a{
+    color: #000;
+}

@@ -1,3 +1,14 @@
-<h1>
-  {{title}}
-</h1>
+<div class="navbar bd-navbar">
+  <ul>
+    <li>
+      <a routerLink="/">דף הבית</a>
+    </li>
+    <li>
+      <a routerLink="/Backoffice">בניית משחק</a>
+    </li>
+  </ul>
+</div>
+
+<div class="container py-md-3 pl-md-5">
+  <router-outlet></router-outlet>
+</div>
