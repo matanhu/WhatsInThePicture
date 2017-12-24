@@ -1,0 +1,31 @@
+.images-container {
+    padding: .5em;
+    border: 1px solid #3e3e3e;
+}
+
+h3 {
+    color: #2b38f4;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.image-detail {
+    margin: 0 0 1em 0;
+}
+
+.img-container {
+    text-align: center;
+}
+
+.image-drop {
+    position: relative;
+    display: block;
+    width: 100%;
+    min-height: 10em;
+    border: 1px solid #e3e3e3;
+}
+
+.img-view {
+    width: auto;
+    max-width: 100%;
+}

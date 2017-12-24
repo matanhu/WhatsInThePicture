@@ -1,0 +1,33 @@
+<div class="form-group">
+  <label for="groupName">שם קבוצה</label>
+  <input type="groupName" class="form-control" id="groupName" aria-describedby="groupName" placeholder="שם הקבוצה">
+</div>
+
+
+<div class="images-container">
+  <div class="col-xm-12" *ngFor="let image of groupGame.imageGameList; let i = index">
+    <h3 (click)="image.hideme = !image.hideme">תמונה מספר {{i+1}}</h3>
+    <hr>
+    <div class="image-detail" [hidden]="image.hideme">
+      <div class="form-group">
+        <label [for]="'imageName_'+i">שם תמונה</label>
+        <input [type]="'imageName_'+i" class="form-control" [id]="'imageName_'+i" aria-describedby="imageName" placeholder="שם תמונה">
+      </div>
+      <div class="image-drop" (drop)="onFileChange($event,i)" (dragover)="allowDrop($event)">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <a href="javascript:void(0)" (click)="file.click()">
+              לחץ לבחירת תמונה
+            </a>
+            או גרור תמונה
+            <input type="file" #file [multiple]="(maxFiles > 1)" (change)="onFileChange($event,i)" style="display:none" />
+          </div>
+          <div class="col-md-12 img-container">
+            <img [src]="image.imageUrl" class="img-view" *ngIf="image.imageUrl">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button type="button" class="btn btn-primary" (click)="addImage()">הוסף תמונה</button>

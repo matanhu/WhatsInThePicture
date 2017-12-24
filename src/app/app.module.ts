@@ -10,10 +10,12 @@ import { BackofficeComponent } from './pages/backoffice/backoffice.component';
 import { HomeComponent } from './pages/home/home.component';
 
 import * as firebase from 'firebase';
-import { AngularFireModule } from 'angularfire2';
+// import { AngularFireModule } from 'angularfire2';
+import { FirebaseService } from 'app/services/firebase/firebase.service';
+import { AddGroupComponent } from './pages/add-group/add-group.component';
 
 
-// firebase.initializeApp(environment.firebase);
+firebase.initializeApp(environment.firebase);
 
 
 
@@ -21,16 +23,17 @@ import { AngularFireModule } from 'angularfire2';
   declarations: [
     AppComponent,
     BackofficeComponent,
-    HomeComponent
+    HomeComponent,
+    AddGroupComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(environment.firebase)
+    // firebase.initializeApp(environment.firebase)
   ],
-  providers: [],
+  providers: [FirebaseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
