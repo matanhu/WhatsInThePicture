@@ -1,14 +1,10 @@
-
-<div>
-  <button class="btn btn-primary" (click)="addGroup()">הוסף קבוצה</button>
-</div>
 <div class="group">
   <div class="col-xm-12" *ngFor="let group of userGameList.groupGameList">
-    <div class="form-group">
-      <label for="groupName">שם קבוצה</label>
-      <input type="groupName" class="form-control" id="groupName" aria-describedby="groupName" placeholder="שם הקבוצה">
-      <small id="groupNameHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    <div>
+      <a [routerLink]="['/Backoffice/AddGroup']" [queryParams]="{ id: group.key }">{{group.name}}</a>
     </div>
+  </div> 
+  <div>
+    <a [routerLink]="['/Backoffice/AddGroup']">הוסף קבוצה</a>
   </div>
-  <button type="submit" class="btn btn-primary">שמור</button>  
 </div>

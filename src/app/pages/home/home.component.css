@@ -1,0 +1,37 @@
+.header {
+    text-align: center;
+}
+
+.input-minutes {
+    float: none;
+    margin: 1em auto;
+}
+
+label {
+    width: 100%;
+    text-align: right;
+    font-weight: bold;
+}
+
+.box-container{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.box {
+    transition: all 0.5s;
+    border: 3px solid #e3e3e3;
+    padding: 4%;
+    font-size: 2rem;
+    font-weight: bold;
+    border-radius: 10px;
+    transform: translate(0,0);
+}
+
+.box:hover {
+    webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+}

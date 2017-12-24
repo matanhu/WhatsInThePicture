@@ -26,6 +26,10 @@ export class BackofficeComponent implements OnInit {
    }
 
   ngOnInit() {
+    this.firebaseService.getGroups(this.firebaseService.getUserId()).then(
+      (snapshot) => {
+        this.userGameList.groupGameList = this.firebaseService.snapshotToArray(snapshot);
+      });
   }
 
   addGroup() {

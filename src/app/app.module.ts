@@ -13,6 +13,9 @@ import * as firebase from 'firebase';
 // import { AngularFireModule } from 'angularfire2';
 import { FirebaseService } from 'app/services/firebase/firebase.service';
 import { AddGroupComponent } from './pages/add-group/add-group.component';
+import { GamePageComponent } from './pages/game-page/game-page.component';
+import { GameComponent } from './components/game/game.component';
+import { LoginPageComponent } from './pages/login-page/login-page.component';
 
 
 firebase.initializeApp(environment.firebase);
@@ -24,7 +27,10 @@ firebase.initializeApp(environment.firebase);
     AppComponent,
     BackofficeComponent,
     HomeComponent,
-    AddGroupComponent
+    AddGroupComponent,
+    GamePageComponent,
+    GameComponent,
+    LoginPageComponent
   ],
   imports: [
     BrowserModule,
