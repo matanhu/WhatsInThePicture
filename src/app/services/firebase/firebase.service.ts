@@ -49,7 +49,7 @@ export class FirebaseService {
   uploadImage(userID: string, groupName: string, file: FileReader, fileName: string) {
     const storageRef = firebase.storage().ref();
 
-    const imageRef = storageRef.child(`${groupName}/${fileName}`);
+    const imageRef = storageRef.child(`${userID}/${groupName}/${fileName}`);
     return imageRef.putString(file.result, 'data_url');
   }
 
