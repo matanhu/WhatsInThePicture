@@ -45,7 +45,7 @@ export class GameComponent implements OnInit, OnDestroy, AfterViewInit {
         this.countDownDate.setMinutes(this.countDownDate.getMinutes() + Number(this.gameMinutes));
         const gameOver = new ImageGame(this.endGameImage, 'Game Over');
         this.groupGame.imageGameList.push(gameOver);
-        this.socket.emit('newImage', {newImage: this.groupGame.imageGameList[0]});
+        this.socket.emit('newImage', this.groupGame.imageGameList[0]);
       });
 
   }
