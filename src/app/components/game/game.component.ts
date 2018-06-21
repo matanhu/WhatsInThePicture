@@ -1,14 +1,17 @@
 import { FirebaseService } from '../../services/firebase/firebase.service';
 import { Observable, Subscription } from 'rxjs/Rx';
-import { Component, ElementRef, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
 import { GroupGame } from 'app/Models/GroupGame';
+
+import * as io from 'socket.io-client';
+import { ImageGame } from '../../Models/ImageGame';
 
 @Component({
   selector: 'app-game',
   templateUrl: './game.component.html',
   styleUrls: ['./game.component.css']
 })
-export class GameComponent implements OnInit {
+export class GameComponent implements OnInit, OnDestroy, AfterViewInit {
 
   @Input()
   private groupKey: string;
@@ -16,11 +19,14 @@ export class GameComponent implements OnInit {
   private gameMinutes: string;
 
   public image: any = 0;
-  public endGame: boolean = false;
+  public endGame = false;
   private countDownDate: Date;
   private timer: Subscription;
   public groupGame: GroupGame;
   public count = 0;
+
+  private ioUrl = '/';
+  private socket;
 
   public endGameImage = 'http://cdn.collider.com/wp-content/uploads/Endgame-logo.jpg';
 
@@ -30,31 +36,42 @@ export class GameComponent implements OnInit {
     private firebaseService: FirebaseService) { }
 
   ngOnInit() {
+    this.socket = io.connect(this.ioUrl);
     this.firebaseService.getGroup(this.firebaseService.getUserId(), this.groupKey).then(
       (snapshot) => {
         this.groupGame = snapshot.val();
         this.gameMinutes = this.gameMinutes !== 'undefined' ? this.gameMinutes : '2';
         this.countDownDate = new Date();
         this.countDownDate.setMinutes(this.countDownDate.getMinutes() + Number(this.gameMinutes));
-        this.initTimer();
+        const gameOver = new ImageGame(this.endGameImage, 'Game Over');
+        this.groupGame.imageGameList.push(gameOver);
+        this.socket.emit('newImage', {newImage: this.groupGame.imageGameList[0]});
       });
 
+  }
+
+  ngAfterViewInit() {
+    this.initTimer();
   }
 
   next() {
     this.image++;
     this.count++;
+    this.socket.emit('newImage', this.groupGame.imageGameList[this.image]);
   }
 
   prev() {
     this.image--;
     this.count--;
+    this.socket.emit('newImage', this.groupGame.imageGameList[this.image]);
   }
 
   stopTimer() {
     this.timer.unsubscribe();
     document.getElementById('timer').innerHTML = 'הזמן נגמר';
-    this.image = 'theEnd';
+    // this.image = 'theEnd';
+    this.image = this.groupGame.imageGameList.length - 1;
+    this.socket.emit('newImage', this.groupGame.imageGameList[this.image]);
     this.endGame = true;
   }
 
