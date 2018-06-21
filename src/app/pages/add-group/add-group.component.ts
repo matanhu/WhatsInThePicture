@@ -57,18 +57,18 @@ export class AddGroupComponent implements OnInit {
     ev.preventDefault();
     ev.stopPropagation();
     ev.target.style.background = 'none';
-    this.handleInputChange(ev, index);
+    const file = ev.dataTransfer ? ev.dataTransfer.files[0] : ev.target.files[0];
+    this.handleInputChange(file, index);
   }
 
-  handleInputChange(e, index) {
-    const file = e.dataTransfer ? e.dataTransfer.files[0] : e.target.files[0];
+  handleInputChange(file, index) {
     this.groupGame.imageGameList[index].name = file.name.substring(0, file.name.lastIndexOf('.'));
 
     const pattern = /image-*/;
     const reader = new FileReader();
 
     if (!file.type.match(pattern)) {
-      alert('invalid format');
+      alert(file.name.substring(0, file.name.lastIndexOf('.')) + 'אינו קובץ מסוג תמונה');
       return;
     }
 
@@ -96,6 +96,24 @@ export class AddGroupComponent implements OnInit {
     this.groupGame.imageGameList[index].imageUrl = reader.result;
   }
 
+
+  onAddMultipleFiles(ev) {
+    ev.preventDefault();
+    ev.stopPropagation();
+    ev.target.style.background = 'none';
+    console.log(ev);
+    if (ev.dataTransfer && ev.dataTransfer.files && ev.dataTransfer.files.length > 0){
+      Array.from(ev.dataTransfer.files).forEach((file) => {
+        this.addImage();
+        this.handleInputChange(file, this.groupGame.imageGameList.length - 1);
+      });
+    } else {
+      Array.from(ev.target.files).forEach((file) => {
+        this.addImage();
+        this.handleInputChange(file, this.groupGame.imageGameList.length - 1);
+      });
+    }
+  }
   continue() {
     if (!this.groupGame.name) {
       alert('יש להכניס שם קבוצה');

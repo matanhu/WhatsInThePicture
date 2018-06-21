@@ -15,12 +15,14 @@ export class GameComponent implements OnInit {
   @Input()
   private gameMinutes: string;
 
-  private image: any = 0;
-  private endGame: boolean = false;
+  public image: any = 0;
+  public endGame: boolean = false;
   private countDownDate: Date;
   private timer: Subscription;
-  private groupGame: GroupGame;
-  private count = 0;
+  public groupGame: GroupGame;
+  public count = 0;
+
+  public endGameImage = 'http://cdn.collider.com/wp-content/uploads/Endgame-logo.jpg';
 
 
   constructor(

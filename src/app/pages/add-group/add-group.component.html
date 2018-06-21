@@ -1,6 +1,6 @@
 <div class="form-group">
   <label for="groupName">שם קבוצה</label>
-  <input type="text" [(ngModel)]="groupGame.name" class="form-control" 
+  <input type="text" [(ngModel)]="groupGame.name" class="form-control"
     id="groupName" aria-describedby="groupName" placeholder="שם הקבוצה" [disabled]="isGroupName">
 </div>
 <div *ngIf="!isGroupName">
@@ -38,6 +38,10 @@
     <div>
       <button type="button" class="btn btn-primary" (click)="addImage()">הוסף תמונה</button>
     </div>
+  </div>
+  <div class="save-button-container">
+    <button type="button" class="btn btn-primary" (click)="multipleFiles.click()">הוסף תמונות</button>
+    <input type="file" #multipleFiles [multiple]="true" (change)="onAddMultipleFiles($event)" style="display:none" />
   </div>
   <div class="save-button-container">
     <button type="button" class="btn btn-primary" (click)="save()">שמור</button>
