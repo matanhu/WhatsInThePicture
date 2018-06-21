@@ -3,13 +3,13 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "ng": "ng",
     "start": "node app.js",
-    "lint": "tslint \"src/**/*.ts\"",
+    "build": "ng build",
     "test": "ng test",
-    "pree2e": "webdriver-manager update",
-    "e2e": "protractor",
-    "preinstall": "npm install",
-    "postinstall": "ng build && mv dist/* ."
+    "lint": "ng lint",
+    "e2e": "ng e2e",
+    "postinstall": "ng build"
   },
   "private": true,
   "dependencies": {
