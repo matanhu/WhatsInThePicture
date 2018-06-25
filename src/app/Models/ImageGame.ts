@@ -4,9 +4,9 @@ export class ImageGame {
         public name?: string,
         public hideme?: boolean
     ) {
-      this.imageUrl = '';
-      this.name = '';
-      this.hideme = true;
+      this.imageUrl = imageUrl || '';
+      this.name = name || '';
+      this.hideme = hideme || true;
     }
 }
 
