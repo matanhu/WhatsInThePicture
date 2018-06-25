@@ -8,7 +8,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  public gameMinutes: number;
   public userGameList = new UserGame();
   public gameMinutes = 0;
 

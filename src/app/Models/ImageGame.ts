@@ -9,3 +9,4 @@ export class ImageGame {
       this.hideme = true;
     }
 }
+
