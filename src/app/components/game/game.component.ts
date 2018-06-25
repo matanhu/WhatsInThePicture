@@ -6,6 +6,7 @@ import { GroupGame } from 'app/Models/GroupGame';
 import * as io from 'socket.io-client';
 import { ImageGame } from '../../Models/ImageGame';
 
+
 @Component({
   selector: 'app-game',
   templateUrl: './game.component.html',
@@ -40,6 +41,9 @@ export class GameComponent implements OnInit, OnDestroy, AfterViewInit {
     this.firebaseService.getGroup(this.firebaseService.getUserId(), this.groupKey).then(
       (snapshot) => {
         this.groupGame = snapshot.val();
+        if (!!false) {
+          this.shuffle(this.groupGame.imageGameList);
+        }
         this.gameMinutes = this.gameMinutes !== 'undefined' ? this.gameMinutes : '2';
         this.countDownDate = new Date();
         this.countDownDate.setMinutes(this.countDownDate.getMinutes() + Number(this.gameMinutes));
@@ -52,6 +56,19 @@ export class GameComponent implements OnInit, OnDestroy, AfterViewInit {
 
   ngAfterViewInit() {
     this.initTimer();
+  }
+
+  shuffle (array) {
+    let i = 0
+      , j = 0
+      , temp = null;
+
+    for (i = array.length - 1; i > 0; i -= 1) {
+      j = Math.floor(Math.random() * (i + 1));
+      temp = array[i]
+      array[i] = array[j];
+      array[j] = temp;
+    }
   }
 
   next() {

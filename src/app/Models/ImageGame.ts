@@ -6,7 +6,7 @@ export class ImageGame {
     ) {
       this.imageUrl = imageUrl || '';
       this.name = name || '';
-      this.hideme = hideme || true;
+      this.hideme = hideme || false;
     }
 }
 
