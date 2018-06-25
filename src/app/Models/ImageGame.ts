@@ -3,5 +3,9 @@ export class ImageGame {
         public imageUrl?: string,
         public name?: string,
         public hideme?: boolean
-    ) {}
+    ) {
+      this.imageUrl = '';
+      this.name = '';
+      this.hideme = true;
+    }
 }

@@ -7,8 +7,10 @@
         <input type="number" name="gameMinutes" id="gameMinutes" class="form-control" placeholder="דקות משחק" [(ngModel)]="gameMinutes">
     </div>
 </div>
-<div class="box-container" *ngFor="let group of userGameList.groupGameList">
-    <a [routerLink]="['/game', group.key, gameMinutes]" class="box">
-        <div>{{group.name}}</div>
-    </a>
+<div class="groups-container">
+  <div class="box-container" *ngFor="let group of userGameList.groupGameList">
+      <a [routerLink]="['/game', group.key, gameMinutes]" class="box">
+          <div>{{group.name}}</div>
+      </a>
+  </div>
 </div>

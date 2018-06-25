@@ -10,6 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   public userGameList = new UserGame();
+  public gameMinutes = 0;
 
   constructor(private firebaseService: FirebaseService) {}
 
