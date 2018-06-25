@@ -16,6 +16,7 @@ import { AddGroupComponent } from './pages/add-group/add-group.component';
 import { GamePageComponent } from './pages/game-page/game-page.component';
 import { GameComponent } from './components/game/game.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { MobileComponent } from './pages/mobile/mobile.component';
 
 
 firebase.initializeApp(environment.firebase);
@@ -30,7 +31,8 @@ firebase.initializeApp(environment.firebase);
     AddGroupComponent,
     GamePageComponent,
     GameComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    MobileComponent
   ],
   imports: [
     BrowserModule,

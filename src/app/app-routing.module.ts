@@ -6,6 +6,7 @@ import { BackofficeComponent } from 'app/pages/backoffice/backoffice.component';
 import { HomeComponent } from 'app/pages/home/home.component';
 import { AddGroupComponent } from 'app/pages/add-group/add-group.component';
 import { LoginPageComponent } from 'app/pages/login-page/login-page.component';
+import { MobileComponent } from './pages/mobile/mobile.component';
 
 const routes: Routes = [
   { path: '', component: LoginPageComponent, pathMatch: 'full' },
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'Backoffice', component: BackofficeComponent },
   { path: 'Backoffice/AddGroup', component: AddGroupComponent },
   { path: 'game/:groupKey/:gameMinutes', component: GamePageComponent},
+  { path: 'mobile', component: MobileComponent }
 ];
 
 @NgModule({

@@ -1,0 +1,12 @@
+<div class="game" *ngIf="imageGame">
+    <div class="timer-container">
+      <div class="img-name">{{imageGame.name}}</div>
+    </div>
+    <div class="image-container w3-content w3-display-container"
+      [ngStyle]="{
+        backgroundImage: imageGame.imageUrl ? 'url(' + imageGame.imageUrl  + ')' : endGameImage
+      }">
+      <!-- <img *ngIf="!endGame" id="img" class="mySlides" [src]="groupGame.imageGameList[image].imageUrl" />
+      <img *ngIf="endGame" id="img" class="mySlides" src="http://cdn.collider.com/wp-content/uploads/Endgame-logo.jpg" /> -->
+      <!--<img src="https://market.marmelada.co.il/photos/239923.jpg">-->
+    </div>

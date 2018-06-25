@@ -8,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GamePageComponent implements OnInit {
 
-  private groupKey: string;
-  private gameMinutes: number;
+  public groupKey: string;
+  public gameMinutes: number;
   constructor(public router: ActivatedRoute) { }
 
   ngOnInit() {
