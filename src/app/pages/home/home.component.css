@@ -23,6 +23,7 @@ label {
 .box-container {
   width: 200px;
   text-align: center;
+  margin: 15px 0;
 }
 
 a.box {

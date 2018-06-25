@@ -15,7 +15,7 @@ export class FirebaseService {
       (user) => {
         if (user) {
           this.user.id = user.uid;
-          console.log(user);
+          console.log('User: ', user);
         } else {
           this.user.id = '';
         }
