@@ -17,6 +17,7 @@ import { GamePageComponent } from './pages/game-page/game-page.component';
 import { GameComponent } from './components/game/game.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { MobileComponent } from './pages/mobile/mobile.component';
+import { EncodeUriPipe } from './pipes/encode-uri.pipe';
 
 
 firebase.initializeApp(environment.firebase);
@@ -32,7 +33,8 @@ firebase.initializeApp(environment.firebase);
     GamePageComponent,
     GameComponent,
     LoginPageComponent,
-    MobileComponent
+    MobileComponent,
+    EncodeUriPipe
   ],
   imports: [
     BrowserModule,
