@@ -1,20 +1,28 @@
 .navbar {
-    background: #e7e7e7;
+    background: #222b38;
 }
 
-.navbar>ul {
+.navbar ul {
     margin: 0;
 }
 
-.navbar>ul>li {
+.navbar ul>li {
     display: inline-block;
     margin: 0em 1em;
 }
 
-.navbar>ul>li>a {
-    color: #777;
+.navbar ul>li>a {
+    color: #fff;
 }
 
-.navbar>ul>li:hover>a{
-    color: #000;
+.navbar ul>li:hover>a{
+    color: #52bff4;
+}
+
+.navbar ul>li.active>a {
+  color: #52bff4;
+}
+
+a {
+  cursor: pointer;
 }

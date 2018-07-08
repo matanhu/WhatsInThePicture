@@ -1,16 +1,27 @@
 .header {
-    text-align: center;
+  /* text-align: center; */
+  text-decoration: underline;
+  color: #18264f;
+  font-weight: bold;
+}
+
+.select-game-box {
+  -webkit-box-shadow: 0 0 3px 0 rgba(0,0,0,.2);
+  box-shadow: 0 0 3px 0 rgba(0,0,0,.2);
+  border-radius: 2px;
+  background-color: #fff;
+  padding: 1.5em;
 }
 
 .input-minutes {
-    float: none;
-    margin: 1em auto;
+  float: none;
+  margin: 1em auto;
 }
 
 label {
-    width: 100%;
-    text-align: right;
-    font-weight: bold;
+  width: 100%;
+  text-align: right;
+  font-weight: bold;
 }
 
 .groups-container {
@@ -26,21 +37,38 @@ label {
   margin: 15px 0;
 }
 
-a.box {
-  border: 3px solid #e3e3e3;
-  padding: 4%;
-  font-size: 2rem;
-  font-weight: bold;
-  border-radius: 10px;
-  /* -webkit-transform: translate(0,0); */
-  /* transform: translate(0,0); */
-  display: block;
+.box-content {
   position: relative;
 }
 
-.box:hover {
-    webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+.box-content::after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
 }
 
+a.box {
+  font-size: 1.8rem;
+  font-weight: bold;
+  display: block;
+  position: relative;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 4%;
+  transition: box-shadow 0.5s;
+  box-shadow: 0 0 5px 1px rgba(24, 38, 79, 1);
+}
+
+.box:hover {
+  webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 10px 10px 5px 1px rgba(24,38,79,1);
+}
+
+.group-name {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translate(0%, -50%);
+  transform: translate(-50%, -50%);
+  left: 50%;
+  width: 100%;
+}

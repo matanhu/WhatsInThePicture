@@ -1,16 +1,20 @@
 <h1 class="header">
-    מה בתמונה
+  מה בתמונה
 </h1>
-<div class="row">
+<div class="select-game-box">
+  <div class="row">
     <div class="col-md-2 form-group input-minutes">
-        <label for="gameMinutes">דקות משחק</label>
-        <input type="number" name="gameMinutes" id="gameMinutes" class="form-control" placeholder="דקות משחק" [(ngModel)]="gameMinutes">
+      <label for="gameMinutes">דקות משחק</label>
+      <input type="number" name="gameMinutes" id="gameMinutes" class="form-control" placeholder="דקות משחק" [(ngModel)]="gameMinutes">
     </div>
-</div>
-<div class="row groups-container">
-  <div class="col-sm-3 box-container" *ngFor="let group of userGameList.groupGameList">
+  </div>
+  <div class="row groups-container">
+    <div class="col-sm-3 box-container" *ngFor="let group of userGameList.groupGameList">
       <a [routerLink]="['/game', group.key, gameMinutes]" class="box">
-          <div>{{group.name}}</div>
+        <div class="col-sm-12 box-content">
+          <div class="group-name">{{group.name}}</div>
+        </div>
       </a>
+    </div>
   </div>
 </div>

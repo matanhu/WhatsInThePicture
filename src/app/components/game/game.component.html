@@ -6,7 +6,7 @@
   </div>
   <div class="image-container w3-content w3-display-container"
     [ngStyle]="{
-      backgroundImage: groupGame.imageGameList[image].imageUrl ? 'url(' + groupGame.imageGameList[image].imageUrl  + ')' : endGameImage
+      backgroundImage: groupGame.imageGameList[image].imageUrl ? 'url(\'' + groupGame.imageGameList[image].imageUrl  + '\')' : endGameImage
     }">
     <!-- <img *ngIf="!endGame" id="img" class="mySlides" [src]="groupGame.imageGameList[image].imageUrl" />
     <img *ngIf="endGame" id="img" class="mySlides" src="http://cdn.collider.com/wp-content/uploads/Endgame-logo.jpg" /> -->
